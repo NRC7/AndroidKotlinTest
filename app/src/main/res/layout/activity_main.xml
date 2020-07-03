@@ -16,7 +16,6 @@
         android:layout_marginTop="55dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
-        android:text="15 de abril del 2020"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -57,11 +56,10 @@
         android:id="@+id/casesTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="146dp"
         android:gravity="center_horizontal"
-        android:text="1312312"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +101,6 @@
         android:layout_marginTop="68dp"
         android:layout_marginEnd="52dp"
         android:gravity="center_horizontal"
-        android:text="1432412"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,6 +122,8 @@
 
     <!-- DATE BUTTON -->
     <Button
+        android:onClick="ShowDatePicker"
+        android:id="@+id/dateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"

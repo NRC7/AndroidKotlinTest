@@ -10,18 +10,24 @@ import retrofit2.Response
 
 class GetServiceData {
 
-    fun getDollarValues(callback: OnGetWrapperDataCallback) {
-        RetrofitClient.instance.getWrapperData("2020-04-07")
+    // This method makes the call (async) to API and obtains response data from service
+    fun getWrapperData(callback: OnGetWrapperDataCallback, date: String) {
+        // Executing async call
+        RetrofitClient.instance.getWrapperData(date)
             .enqueue(object : Callback<Wrapper> {
+
                 override fun onResponse(call: Call<Wrapper>, response: Response<Wrapper>) {
-                    Log.d("TAG", "CALL " + call.request().url())
+                    Log.d("TAG", "RESPONSE")
+                    Log.d("TAG", "CALL: " + call.request().url())
+                    // Response data
                     val wrapperData = response.body()
+                    // Status validation
                     if (wrapperData != null && response.isSuccessful && response.code() == 200) {
+                        // Send the data valid object to subscribers (MainActivity)
                         callback.onGetWrapperData(wrapperData.data)
-                        Log.d("TAG", response.code().toString())
-                        Log.d("TAG", "RESPONSE")
+                        Log.d("TAG", "Succesful: " + response.code().toString())
                     } else {
-                        Log.d("TAG", response.code().toString())
+                        Log.d("TAG", "Not succesful: " + response.code().toString())
                     }
                 }
 
@@ -33,6 +39,7 @@ class GetServiceData {
             })
     }
 
+    // Inner callback Send a data object to any subscriber
     interface OnGetWrapperDataCallback {
         fun onGetWrapperData(data: Data)
     }
