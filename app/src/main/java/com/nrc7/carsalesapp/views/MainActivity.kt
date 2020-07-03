@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity(), GetServiceData.OnGetWrapperDataCallbac
         deceasedTv.text = data.deaths.toString()
     }
 
+    // Date picker
     private fun showDatePicker() {
         DatePickerDialog(this,
             this,
@@ -71,9 +72,6 @@ class MainActivity : AppCompatActivity(), GetServiceData.OnGetWrapperDataCallbac
             Calendar.getInstance().get(Calendar.MONTH),
             Calendar.getInstance().get(Calendar.DAY_OF_MONTH)).show()
     }
-
-    // Date picker
-
 
     // Delete reference to prevent memory leaks
     override fun onDestroy() {
@@ -95,7 +93,6 @@ class MainActivity : AppCompatActivity(), GetServiceData.OnGetWrapperDataCallbac
         } else {
             date += dayOfMonth
         }
-
         Log.d("TAG", date)
         getServiceData!!.getWrapperData(this, date)
     }
