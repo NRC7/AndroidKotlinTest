@@ -26,7 +26,8 @@ class MainActivity : AppCompatActivity(), GetServiceData.OnGetWrapperDataCallbac
 
         // Init service
         getServiceData = GetServiceData()
-        getServiceData!!.getWrapperData(this, getDefaultDate())
+        //
+        getServiceData!!.getWrapperData(this, "manzana")
 
 
     }

@@ -28,6 +28,7 @@ class GetServiceData {
                         Log.d("TAG", "Succesful: " + response.code().toString())
                     } else {
                         Log.d("TAG", "Not succesful: " + response.code().toString())
+                        call.request().url().toString()
                     }
                 }
 
